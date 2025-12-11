@@ -2,6 +2,7 @@ package com.satish.LearningConfiguration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 record Person(String name, int age, Address address) {};
 record Address(String street, String city){};
@@ -25,6 +26,7 @@ public class ConfigForPerson {
     }
 
     @Bean(name="address2")
+    @Primary //makes default or the primary when there are multiple same type beans
     public Address address3(){
         return new Address("FC road", "Pune");
     }

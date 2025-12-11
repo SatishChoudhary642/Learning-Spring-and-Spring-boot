@@ -1,5 +1,7 @@
 package com.satish.LearningConfiguration;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AppMain {
@@ -17,5 +19,13 @@ public class AppMain {
         System.out.println(context.getBean("personByMethods")); 
         System.out.println(context.getBean("personByParameter"));
 
+        // Retrieving all Beans names managed by spring 
+        //context.getBeanDefinitionNames() -- gives you all names
+        Arrays.stream(context.getBeanDefinitionNames())
+        .forEach(System.out::println);
+        //.forEach(name -> System.out.println(name))
+
+        // we can made address2 @Primary so we when we retrive address we will get address2
+        System.out.println(context.getBean(Address.class));
     }
 }
