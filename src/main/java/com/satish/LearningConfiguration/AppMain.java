@@ -7,10 +7,15 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AppMain {
     public static void main(String[] args) {
 
+        //The AnnotationConfigApplicationContext is a heavy object. 
+        // It takes up memory and potentially holds onto system resources
+        // so we put it in try 
+        //Java will then automatically 
+        // close the context for you when the code block finishes, 
+        // even if there is an error.
         // 1: Lanuch a spring context
-        var context = new AnnotationConfigApplicationContext(ConfigForPerson.class);
-
-        // 2: Configure the things that we want spring to manage
+        try(var context = new AnnotationConfigApplicationContext(ConfigForPerson.class)){
+            // 2: Configure the things that we want spring to manage
         // config -- @Configaration
         // name, age, address, person -- @Bean
 
@@ -27,5 +32,6 @@ public class AppMain {
 
         // we can made address2 @Primary so we when we retrive address we will get address2
         System.out.println(context.getBean(Address.class));
+        }
     }
 }
