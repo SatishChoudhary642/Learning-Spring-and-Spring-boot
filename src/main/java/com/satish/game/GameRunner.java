@@ -1,14 +1,18 @@
 package com.satish.game;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
 public class GameRunner {
 
-	public static void main(String[] args) {
-		
-		SpringApplication.run(GameRunner.class, args);
-	}
+    private GamingConsole game;
 
+    GameRunner(GamingConsole game){
+        this.game=game;
+    }
+
+    public void run(){
+        System.out.println("Running game: " + game);
+        game.up();
+        game.down();
+        game.left();
+        game.right();
+    }
 }
