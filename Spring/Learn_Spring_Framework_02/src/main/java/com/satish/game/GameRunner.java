@@ -1,5 +1,6 @@
 package com.satish.game;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -7,7 +8,7 @@ public class GameRunner {
 
     private GamingConsole game;
 
-    GameRunner(GamingConsole game){
+    GameRunner(@Qualifier("superContraGameQualifier") GamingConsole game){
         this.game=game;
     }
 

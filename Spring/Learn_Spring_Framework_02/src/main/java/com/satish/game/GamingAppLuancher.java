@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("com.satish.game")
-public class AppGamingSpring {
+public class GamingAppLuancher {
 
 	public static void main(String[] args) {
 		
-		try(var context =new  AnnotationConfigApplicationContext(AppGamingSpring.class)){
+		try(var context =new  AnnotationConfigApplicationContext(GamingAppLuancher.class)){
 			context.getBean(GamingConsole.class).up();
 			context.getBean(GameRunner.class).run();
 		}
