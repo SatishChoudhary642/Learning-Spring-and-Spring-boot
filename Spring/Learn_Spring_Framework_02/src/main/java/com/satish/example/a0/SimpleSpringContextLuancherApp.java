@@ -14,15 +14,23 @@ class YourBusinessClass {
 	Dependency1 dependency1;
 	Dependency2 dependency2;
 
-	@Autowired
-	public void setDependency1(Dependency1 dependency1) {
+	// @Autowired 
+	// In modern Spring, @Autowired is actually optional on the constructor if there is only one constructor!
+	public YourBusinessClass(Dependency1 dependency1, Dependency2 dependency2) {
+		super();
 		this.dependency1 = dependency1;
-	}
-
-	@Autowired
-	public void setDependency2(Dependency2 dependency2) {
 		this.dependency2 = dependency2;
-	}
+	} 
+
+	// @Autowired
+	// public void setDependency1(Dependency1 dependency1) {
+	// 	this.dependency1 = dependency1;
+	// }
+
+	// @Autowired
+	// public void setDependency2(Dependency2 dependency2) {
+	// 	this.dependency2 = dependency2;
+	// }
 
 
 	public String toString() {
