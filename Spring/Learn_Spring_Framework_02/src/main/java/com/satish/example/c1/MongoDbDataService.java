@@ -1,4 +1,4 @@
-package com.satish.Exercise;
+package com.satish.example.c1;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
