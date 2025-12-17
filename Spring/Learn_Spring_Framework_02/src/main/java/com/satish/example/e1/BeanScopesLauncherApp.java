@@ -42,6 +42,7 @@ public class BeanScopesLauncherApp {
 			//Session --> one object instance per user HTTP Session
 			//Application --> one object instance per web application rutime
 			//websocket --> one object instance per websocket instance
+		}
 	}
 
 }
