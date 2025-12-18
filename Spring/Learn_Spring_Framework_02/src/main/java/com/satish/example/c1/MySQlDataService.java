@@ -1,8 +1,10 @@
 package com.satish.example.c1;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+// @Component
+@Repository
 public class MySQlDataService  implements DataService{
     
     public int[] retrieveData() {

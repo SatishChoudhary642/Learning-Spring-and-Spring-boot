@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("com.satish.Exercise")
+@ComponentScan("com.satish.example.c1")
 public class BusinessApp {
 
     public static void main(String[] args) {
