@@ -1,16 +1,19 @@
 package com.satish.springboot.learning_spring_boot;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CourseControler {
+public class CurrencyConfigControler {
 
     @Autowired
     private CurrencyServiceConfig config;
 
-    @RequestMapping("/course")
+    @RequestMapping("/currency-configuration")
     public CurrencyServiceConfig getAllCourses(){
         return config;
     }
