@@ -14,7 +14,8 @@ public class CourseControler {
     public List<Course> getAllCourses(){
         return Arrays.asList(
             new Course(1, "Mern", "Code with chai"),
-            new Course(2, "DSA in C++", "LoveBabar")
+            new Course(2, "DSA in C++", "LoveBabar"),
+            new Course(3,"Spring boot", "in28minutes")
         );
     }
 }
