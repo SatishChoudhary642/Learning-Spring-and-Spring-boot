@@ -27,6 +27,9 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner{
         repository.insert(c4);
 
         repository.deleteById(2);
+
+        System.out.println(repository.getById(1));
+        System.out.println(repository.getById(3));
     }
     
 }
