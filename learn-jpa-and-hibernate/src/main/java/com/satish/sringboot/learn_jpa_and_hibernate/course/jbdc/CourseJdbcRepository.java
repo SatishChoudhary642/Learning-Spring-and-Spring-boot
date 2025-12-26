@@ -39,7 +39,7 @@ public class CourseJdbcRepository {
         springJdbcTemplate.update(DELETE_QUERY, id);
     }
 
-    public Course getById(long id){
+    public Course findById(long id){
          //ResultSet -> bean => Row Mapper.  mapping to Course class
         return springJdbcTemplate.queryForObject(FIND_BY_ID, new BeanPropertyRowMapper<>(Course.class), id);
     }

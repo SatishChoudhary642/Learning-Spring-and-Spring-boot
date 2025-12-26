@@ -1,17 +1,20 @@
-package com.satish.sringboot.learn_jpa_and_hibernate.course.jbdc;
+package com.satish.sringboot.learn_jpa_and_hibernate.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.satish.sringboot.learn_jpa_and_hibernate.course.Course;
+import com.satish.sringboot.learn_jpa_and_hibernate.course.jpa.CourseJpaRepository;
 
 
 @Component
-public class CourseJdbcCommandLineRunner implements CommandLineRunner{
+public class CourseCommandLineRunner implements CommandLineRunner{
     
+    // @Autowired
+    // private CourseRepository repository;
+
     @Autowired
-    private CourseJdbcRepository repository;
+    private CourseJpaRepository repository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -28,8 +31,8 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner{
 
         repository.deleteById(2);
 
-        System.out.println(repository.getById(1));
-        System.out.println(repository.getById(3));
+        System.out.println(repository.findById(1));
+        System.out.println(repository.findById(3));
     }
     
 }
