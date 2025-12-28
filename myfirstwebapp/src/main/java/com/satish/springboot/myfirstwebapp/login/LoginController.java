@@ -1,24 +1,40 @@
 package com.satish.springboot.myfirstwebapp.login;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.satish.springboot.myfirstwebapp.AuthenticationService;
 
 @Controller
 public class LoginController {
     
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private AuthenticationService authenticationService;
 
-    //http://localhost:8081/login?name=Satish
-    @RequestMapping("login")
-    public String gottoLoginPage(@RequestParam String name, ModelMap model){
-        model.put("nameVar", name);
-        logger.debug("Will only be printed if level is set to debug");
-        logger.info("Request param is {}",name);
-        logger.warn("Printed on warn level");
+    
+    public LoginController(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String gottoLoginPage(){
+        return "login";
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String gottoWelcomePage(@RequestParam String name, @RequestParam String password, ModelMap model){
+        model.put("name", name);
+       
+        //Authentication
+        //name - Satish 
+        //password - 123
+        if (authenticationService.authenticate(name, password)) {
+            return "welcome";        
+        }
+
+        model.put("errorMessage", "Invalid Credentials! Please try again.");
         return "login";
     }
 }
