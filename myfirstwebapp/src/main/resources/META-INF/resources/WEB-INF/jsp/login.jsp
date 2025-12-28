@@ -3,6 +3,7 @@
         <title>Login Page</title>
     </head>
     <body>
+        <h1>${nameVar}</h1>
         <h2>Welcome to the Login Page</h2>
         <hr>
         
