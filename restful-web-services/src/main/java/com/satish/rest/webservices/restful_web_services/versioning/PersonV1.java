@@ -1,4 +1,4 @@
-package com.satish.rest.webservices.versioning;
+package com.satish.rest.webservices.restful_web_services.versioning;
 
 public class PersonV1 {
    private String name;
