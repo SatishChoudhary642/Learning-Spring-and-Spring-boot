@@ -112,7 +112,7 @@ public class UserResource {
         if (post.get().getUser().getId() != id) {
             throw new PostNotFoundException("Post " + pid + " does not belong to User " + id);
         }
-        
+
         EntityModel<Post> entityModel = EntityModel.of(post.get());
         WebMvcLinkBuilder link =  linkTo(methodOn(this.getClass()).retrievePostsByUser(id));
         entityModel.add(link.withRel("all-posts"));
