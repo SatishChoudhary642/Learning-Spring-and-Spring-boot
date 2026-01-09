@@ -1,4 +1,6 @@
 package com.satish.rest.webservices.restful_web_services.user;
 
-public class UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
 }
