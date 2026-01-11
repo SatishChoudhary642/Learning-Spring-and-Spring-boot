@@ -1,6 +1,6 @@
-package com.satish.learn_spring_aop.aop.business;
+package com.satish.learn_spring_aop.aopexample.business;
 
-import com.satish.learn_spring_aop.aop.data.DataService1;
+import com.satish.learn_spring_aop.aopexample.data.DataService1;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -16,6 +16,8 @@ public class BusinessService1 {
 
     public int calculateMax(){
         int[] data = dataService1.retrieveData();
+
+//        throw new RuntimeException("Something went wrong");
         return Arrays.stream(data).max().orElse(0);
     }
 }

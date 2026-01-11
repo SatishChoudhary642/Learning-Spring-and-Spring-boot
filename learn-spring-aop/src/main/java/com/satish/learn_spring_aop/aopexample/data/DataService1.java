@@ -1,7 +1,6 @@
-package com.satish.learn_spring_aop.aop.data;
+package com.satish.learn_spring_aop.aopexample.data;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 @Repository
 public class DataService1 {

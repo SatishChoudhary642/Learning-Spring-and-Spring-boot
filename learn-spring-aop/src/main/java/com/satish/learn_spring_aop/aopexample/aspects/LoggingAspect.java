@@ -1,12 +1,10 @@
-package com.satish.learn_spring_aop.aop.aspects;
+package com.satish.learn_spring_aop.aopexample.aspects;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.context.annotation.Configuration;
-import org.aspectj.lang.annotation.Aspect;
 
 //Contains AOP configuration
 @Configuration
@@ -17,8 +15,33 @@ public class LoggingAspect {
 
     // Pointcut - When ?
     // execution(* PACKAGE.*.*(..))
-    @Before("execution(* com.satish.learn_spring_aop.aop.business .*.*(..))")
-    public void logMethodCall(JoinPoint joinPoint){
-        logger.info("Before Aspect - Method is called - {} ",joinPoint);
+    //   execution(...): Trigger when a method executes.
+    //   * (First asterisk): Any Return Type (it doesn't matter if the method returns void, int, or String).
+    //   com.satish...business: The Package to watch.
+    //   .* (After package): Any Class inside that package.
+    //   .* (After class): Any Method inside that class.
+    //    (..): Any Arguments (it matches methods with 0 arguments, 1 argument, or 10 arguments).
+    @Before("execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))")
+    public void logMethodCallBeforeExecution(JoinPoint joinPoint){
+        logger.info("Before Aspect - {} Method is called with  - {} ",joinPoint, joinPoint.getArgs());
+    }
+
+    @After("execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))")
+    public void logMethodCallAfterExecution(JoinPoint joinPoint){
+        logger.info("After Aspect - {} has executed ",joinPoint);
+    }
+
+    @AfterThrowing(
+            pointcut = "execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))"
+            ,throwing="exception")
+    public void logMethodCallAfterException(JoinPoint joinPoint, Exception exception){
+        logger.info("AfterThrowing Aspect - {} has Thrown an exception {}",joinPoint, exception);
+    }
+
+    @AfterReturning(
+            pointcut = "execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))"
+            ,returning="resultValue")
+    public void logMethodCallAfterSuccessfulExcution(JoinPoint joinPoint, Object resultValue){
+        logger.info("AfterReturning Aspect - {} has returned  {}",joinPoint, resultValue);
     }
 }
