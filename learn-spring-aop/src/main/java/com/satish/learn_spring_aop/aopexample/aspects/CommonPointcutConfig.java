@@ -6,4 +6,10 @@ public class CommonPointcutConfig {
 
     @Pointcut("execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))")
     public void businessAndDataPackageConfig(){}
+
+    @Pointcut("execution(* com.satish.learn_spring_aop.aopexample.business.*.*(..))")
+    public void businessPackageConfig(){}
+
+    @Pointcut("execution(* com.satish.learn_spring_aop.aopexample.data.*.*(..))")
+    public void dataPackageConfig(){}
 }
