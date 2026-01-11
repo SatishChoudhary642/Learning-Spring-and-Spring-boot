@@ -12,4 +12,8 @@ public class CommonPointcutConfig {
 
     @Pointcut("execution(* com.satish.learn_spring_aop.aopexample.data.*.*(..))")
     public void dataPackageConfig(){}
+
+    //will match any Spring Bean whose name contains the word "Service".
+    @Pointcut("bean(*Service*)")
+    public void allPackageCongifUsingBean(){}
 }
