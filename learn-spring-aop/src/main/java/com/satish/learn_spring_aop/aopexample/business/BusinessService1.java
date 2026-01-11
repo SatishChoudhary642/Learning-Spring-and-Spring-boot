@@ -1,5 +1,6 @@
 package com.satish.learn_spring_aop.aopexample.business;
 
+import com.satish.learn_spring_aop.aopexample.annotations.TrackTime;
 import com.satish.learn_spring_aop.aopexample.data.DataService1;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ public class BusinessService1 {
         this.dataService1 = dataService1;
     }
 
+    @TrackTime
     public int calculateMax(){
         int[] data = dataService1.retrieveData();
 

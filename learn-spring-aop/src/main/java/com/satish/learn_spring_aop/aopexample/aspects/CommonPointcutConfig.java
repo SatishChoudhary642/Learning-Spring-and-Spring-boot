@@ -16,4 +16,7 @@ public class CommonPointcutConfig {
     //will match any Spring Bean whose name contains the word "Service".
     @Pointcut("bean(*Service*)")
     public void allPackageCongifUsingBean(){}
+
+    @Pointcut("@annotation(com.satish.learn_spring_aop.aopexample.annotations.TrackTime)")
+    public void trackTimeAnnotation(){}
 }
