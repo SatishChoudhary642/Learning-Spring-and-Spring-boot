@@ -3,9 +3,9 @@ package com.satish.learn_spring_aop.aopexample.data;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class DataService1 {
+public class DataService2 {
 
     public int[] retrieveData(){
-        return new int[] {11,22,33,44,55};
+        return new int[] {66,77,88,99};
     }
 }
