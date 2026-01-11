@@ -21,25 +21,25 @@ public class LoggingAspect {
     //   .* (After package): Any Class inside that package.
     //   .* (After class): Any Method inside that class.
     //    (..): Any Arguments (it matches methods with 0 arguments, 1 argument, or 10 arguments).
-    @Before("execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))")
+    @Before("com.satish.learn_spring_aop.aopexample.aspects.CommonPointcutConfig.businessAndDataPackageConfig()")
     public void logMethodCallBeforeExecution(JoinPoint joinPoint){
         logger.info("Before Aspect - {} Method is called with  - {} ",joinPoint, joinPoint.getArgs());
     }
 
-    @After("execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))")
+    @After("com.satish.learn_spring_aop.aopexample.aspects.CommonPointcutConfig.businessAndDataPackageConfig()")
     public void logMethodCallAfterExecution(JoinPoint joinPoint){
         logger.info("After Aspect - {} has executed ",joinPoint);
     }
 
     @AfterThrowing(
-            pointcut = "execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))"
+            pointcut = "com.satish.learn_spring_aop.aopexample.aspects.CommonPointcutConfig.businessAndDataPackageConfig()"
             ,throwing="exception")
     public void logMethodCallAfterException(JoinPoint joinPoint, Exception exception){
         logger.info("AfterThrowing Aspect - {} has Thrown an exception {}",joinPoint, exception);
     }
 
     @AfterReturning(
-            pointcut = "execution(* com.satish.learn_spring_aop.aopexample.* .*.*(..))"
+            pointcut = "com.satish.learn_spring_aop.aopexample.aspects.CommonPointcutConfig.businessAndDataPackageConfig()"
             ,returning="resultValue")
     public void logMethodCallAfterSuccessfulExcution(JoinPoint joinPoint, Object resultValue){
         logger.info("AfterReturning Aspect - {} has returned  {}",joinPoint, resultValue);
