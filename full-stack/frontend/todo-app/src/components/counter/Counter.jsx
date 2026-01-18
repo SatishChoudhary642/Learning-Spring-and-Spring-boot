@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import './Counter.css'
 
-export default function Counter({by}){
+//if by is not passed by will be 1 by default
+export default function Counter({by=1}){
 
     //[0,f]
     const [count, setCount] = useState(0)
@@ -29,4 +31,8 @@ export default function Counter({by}){
             </div>
         </div>
     )
+}
+
+Counter.propTypes={
+    by: PropTypes.number
 }

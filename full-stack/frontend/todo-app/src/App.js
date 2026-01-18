@@ -5,7 +5,7 @@ import LearningComponent from './components/learning-examples/LearningComponent'
 function App() {
   return (
     <div className="App">
-      <Counter by={1}/>
+      <Counter/>
       <Counter by={2}/>
       <Counter by={3}/>
     </div>
