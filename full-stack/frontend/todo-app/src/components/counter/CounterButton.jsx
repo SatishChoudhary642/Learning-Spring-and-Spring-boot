@@ -12,7 +12,7 @@ export default function CounterButton({ by = 1 ,incrementMethod, decrementMethod
     decrementMethod(by);
   }
 
-  return (
+  return ( 
     <div className="Counter">
       <div>
         <button className="counterButton" onClick={() => incrementMethod(by)}>
