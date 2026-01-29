@@ -20,7 +20,7 @@ function LoginComponent(){
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password"/>
+                    <input type="password" name="password" style value="Satish"/>
                 </div>
                 <div>
                     <button type="button" name="login">Login</button>
